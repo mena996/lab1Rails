@@ -7,7 +7,8 @@
     <tr>
       <th>Title</th>
       <th>Content</th>
-      <th colspan="3">action</th>
+      <th>Last Update</th>
+      <th colspan="4" class="text-center">action</th>
     </tr>
   </thead>
 
@@ -16,7 +17,9 @@
       <tr>
         <td><%= post.title %></td>
         <td><%= post.content %></td>
-        <td><%= link_to 'Show', post %></td>
+        <td><%= post.updated_at %></td>
+        <td><%= link_to 'Show comments', comments_path(post.id) %></td>
+        <td><%= link_to 'new comment', new_comment_path(post.id) %></td>
         <td><%= link_to 'Edit', edit_post_path(post) %></td>
         <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

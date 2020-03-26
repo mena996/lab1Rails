@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Comments</h1>
+<div class="alert  alert-dark">
+      <h3><strong>post title:</strong><%= @post.title %></h2>
+      <h2><strong>post content:</strong><%= @post.content %></h2>
+</div>
+<%= link_to 'New Comment', new_comment_path+"/"+params[:id] ,class: 'btn btn-primary mb-2' %>
+<table class='table'>
+  <thead class="thead-dark">
+    <tr>
+      <th>Content</th>
+      <th colspan="2" class="text-center"> action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @comments.each do |comment| %>
+      <tr>
+        <td><%= comment.content %></td>
+        <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
+        <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
